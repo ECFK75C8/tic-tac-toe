@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Tiktok',
+      title: 'Tic-tac-toe',
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
         accentColor: Color(0xFFFFC107),
