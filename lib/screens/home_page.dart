@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../utils/game_utils.dart';
+import '../widgets/my_chip.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -100,37 +101,19 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     var chips = [
-      Chip(
-        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-        label: FittedBox(
-            child: Text('${isLandscape ? 'Player 1' : 'P1'}: $scoreP1')),
-        labelStyle:
-            TextStyle(color: (tooglePlayer) ? Colors.white : Colors.black54),
+      MyChip(
+        labelText: '${isLandscape ? 'Player 1' : 'P1'}: $scoreP1',
+        textColor: (tooglePlayer) ? Colors.white : Colors.black54,
         backgroundColor:
             (tooglePlayer) ? Theme.of(context).accentColor : Colors.black12,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(10),
-            bottomRight: Radius.circular(10),
-          ),
-        ),
       ),
       SizedBox(width: 10),
-      Chip(
-        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-        label: FittedBox(
-            child: Text('${isLandscape ? 'Player 2' : 'P2'}: $scoreP2')),
-        labelStyle:
-            TextStyle(color: (!tooglePlayer) ? Colors.white : Colors.black54),
+      MyChip(
+        labelText: '${isLandscape ? 'Player 2' : 'P2'}: $scoreP2',
+        textColor: (!tooglePlayer) ? Colors.white : Colors.black54,
         backgroundColor:
             (!tooglePlayer) ? Theme.of(context).accentColor : Colors.black12,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(10),
-            bottomRight: Radius.circular(10),
-          ),
-        ),
-      ),
+      )
     ];
 
     var controls = Column(
