@@ -10,7 +10,7 @@ class MyChip extends StatelessWidget {
     return Chip(
       padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       label: FittedBox(child: Text(labelText)),
-      labelStyle: TextStyle(color: textColor),
+      labelStyle: TextStyle(color: textColor, fontWeight: FontWeight.w500),
       backgroundColor: backgroundColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(

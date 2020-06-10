@@ -14,8 +14,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int scoreP1 = 0, scoreP2 = 0;
   bool tooglePlayer = true;
-  Map<int, Player> _selected = {};
-  List<int> _selectedIndexesP1 = [], _selectedIndexesP2 = [], _winTile = [];
+  var _selected = <int, Player>{};
+  var _selectedIndexesP1 = <int>[],
+      _selectedIndexesP2 = <int>[],
+      _winTile = <int>[];
   GameState gameState = GameState.Playing;
 
   void _pressTileAction(int index) async {
@@ -69,7 +71,6 @@ class _MyHomePageState extends State<MyHomePage> {
       height: isLandscape ? landscapeGridBoxSize : gridBoxSize,
       margin: EdgeInsets.all(10),
       child: Wrap(
-        alignment: WrapAlignment.spaceEvenly,
         children: List.generate(
           9,
           (index) => LayoutBuilder(
@@ -118,6 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     var controls = Column(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
         ...chips,
         SizedBox(height: 20),
@@ -146,12 +148,16 @@ class _MyHomePageState extends State<MyHomePage> {
       body: !isLandscape
           ? Center(child: body)
           : SafeArea(
-              child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              child: Center(
               child: Row(
+                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[body, controls],
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  body,
+                  SizedBox(width: gridBoxSize * 0.3),
+                  controls
+                ],
               ),
             )),
     );
